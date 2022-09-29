@@ -4,6 +4,31 @@
   <meta charset="utf-8" />
   <title>Principato Italian Cuisine</title>
   <link href="css/style.css" rel="stylesheet" />
+
+  <script>
+    let oraingoIndex = -1
+    const argazkiak = ['url(../images/rotation/fresas.jpg)', 'url(../images/rotation/limon.jpg)', 'url(../images/rotation/mandarinas.jpg)', 'url(../images/rotation/manzanas.jpg)', 'url(../images/rotation/melon.jpg)', 'url(../images/rotation/sesamo.jpg)']
+    let irudia
+    function irudiaBilatu(){
+      irudia = document.getElementById('image')
+    }
+    function aldatuArgazkia(){
+      console.log('Exekutatzen')
+      console.log(oraingoIndex)
+      if(oraingoIndex == argazkiak.length - 1){
+        hurrengoIndex = 0
+        oraingoIndex = 0
+      }
+      else{
+        hurrengoIndex = oraingoIndex + 1
+        oraingoIndex = hurrengoIndex
+      }
+      irudia.style.backgroundImage = argazkiak[hurrengoIndex]
+    }
+    window.onload = irudiaBilatu
+    window.setInterval(aldatuArgazkia, 1000)
+  </script>
+
 </head>
 <body>
 <div class="container">
@@ -106,5 +131,22 @@ Aenean vitae leo vitae diam pellentesque bibendum eu facilisis erat.<p align="ce
   </header>    
 </div>
 <!-- Free template distributed by http://freehtml5templates.com -->
-</body> 
+
+<script>
+  function aldatuArgazkia(){
+    let irudia = document.getElementById('image')
+    let argazkiak = ['url(../images/rotation/fresas.jpg)', 'url(../images/rotation/limon.jpg)', 'url(../images/rotation/mandarinas.jpg)', 'url(../images/rotation/manzanas.jpg)', 'url(../images/rotation/melon.jpg)', 'url(../images/rotation/sesamo.jpg)']
+    let estiloa = getComputedStyle(irudia)
+    let oraingoIndex = argazkiak.indexOf(estiloa.backgroundImage)
+    if (oraingoIndex == -1 || oraingoUrl == argazkiak.length - 1){
+      hurrengoIndex = 0
+    }
+    else{
+      hurrengoIndex = oraingoIndex + 1
+    }
+    estiloa.setProperty('backgroundImage', argazkiak[hurrengoIndex])
+  }
+</script>
+
+</body>
 </html>
